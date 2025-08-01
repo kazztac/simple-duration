@@ -1,0 +1,15 @@
+[package]
+name = "simple-duration"
+version = "0.1.0"
+edition = "2021"
+description = "A simple, dependency-minimal Duration type for second-precision time handling"
+license = "MIT"
+keywords = ["duration", "time", "no-std", "simple", "embedded"]
+categories = ["no-std", "embedded", "date-and-time"]
+readme = "README.md"
+
+[features]
+default = ["std"]
+std = []
+
+[dependencies]
