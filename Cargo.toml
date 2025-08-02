@@ -2,11 +2,14 @@
 name = "simple-duration"
 version = "0.1.0"
 edition = "2021"
+authors = ["kazztac <42577573+kazztac@users.noreply.github.com>"]
+license = "MIT OR Apache-2.0"
 description = "A simple, dependency-minimal Duration type for second-precision time handling"
-license = "MIT"
 keywords = ["duration", "time", "no-std", "simple", "embedded"]
 categories = ["no-std", "embedded", "date-and-time"]
 readme = "README.md"
+repository = "https://github.com/kazztac/simple-duration"
+documentation = "https://docs.rs/simple-duration"
 
 [features]
 default = ["std"]
