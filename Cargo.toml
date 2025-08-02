@@ -15,4 +15,8 @@ documentation = "https://docs.rs/simple-duration"
 default = ["std"]
 std = []
 
+serde = ["dep:serde"]
+
+
 [dependencies]
+serde = { version = "1", optional = true, default-features = false, features = ["derive"] }

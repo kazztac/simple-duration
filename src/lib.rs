@@ -69,6 +69,7 @@ use core::ops::{Add, Sub};
 /// Simple Duration type with second precision
 ///
 /// This struct provides time representation in seconds, optimized for hours/minutes/seconds handling.
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Duration {
     seconds: u64,

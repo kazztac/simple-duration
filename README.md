@@ -30,6 +30,9 @@ It is optimized for everyday use with hours, minutes, and seconds, and is suitab
 - **Safe error handling**  
   Failures like string parsing return explicit errors via Option/Result without panicking.
 
+**Serde support (JSON serialization/deserialization)**  
+  Enable the `serde` feature to serialize/deserialize `Duration` to/from JSON and other formats.
+
 - **Well-tested and documented**  
   Includes tests and documentation for quality assurance.
 
@@ -71,6 +74,17 @@ let d1 = Duration::from_seconds(100);
 let d2 = Duration::from_seconds(50);
 let sum = d1 + d2; // 150 seconds
 let diff = d1 - d2; // 50 seconds
+
+// --- Serde integration example (JSON save/load) ---
+#[cfg(feature = "serde")]
+{
+    use serde_json;
+    let duration = Duration::from_hms(1, 2, 3);
+    let json = serde_json::to_string(&duration).unwrap();
+    assert_eq!(json, "\"01:02:03\"");
+    let d2: Duration = serde_json::from_str(&json).unwrap();
+    assert_eq!(d2, duration);
+}
 ```
 
 ### SystemTime integration (when std feature is enabled)
@@ -95,6 +109,15 @@ Add the following to your `Cargo.toml`:
 ```toml
 [dependencies]
 simple-duration = "0.1"
+```
+
+### Enable serde support
+
+If you want to serialize/deserialize `Duration` to/from JSON or other formats, enable the `serde` feature:
+
+```toml
+[dependencies]
+simple-duration = { version = "0.1", features = ["serde"] }
 ```
 
 ### Usage in no_std environments
